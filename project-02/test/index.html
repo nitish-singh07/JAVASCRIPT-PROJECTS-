@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Call with Screen Share and Chat</title>
+  <!-- Include necessary CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-peer/9.6.1/simplepeer.min.css">
+
+</head>
+<body>
+  <h1>Video Call with Screen Share and Chat</h1>
+  
+  <div id="videos">
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+  </div>
+  
+  <div>
+    <button id="startButton">Start Call</button>
+    <button id="shareScreenButton">Share Screen</button>
+    <button id="toggleVideoButton">Turn off Video</button>
+    <button id="toggleAudioButton">Toggle Audio <span id="audioIcon">&#128266;</span> </button>
+    <button id="muteButton">Mute</button>
+  </div>
+
+  <div id="chat">
+    <input type="text" id="chatInput" placeholder="Type your message here">
+    <button id="sendButton">Send</button>
+  </div>
+  
+  <div id="chatArea"> </div>
+  
+  <!-- Include necessary JavaScript libraries -->
+
+  <script src="myscripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-peer/9.6.1/simplepeer.min.js"></script>
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <script src="index.js"></script>
+
+</body>
+</html>
