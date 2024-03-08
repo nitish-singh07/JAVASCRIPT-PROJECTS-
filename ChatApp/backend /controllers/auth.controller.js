@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs"
+import genrateTokenSetCookie from "../utlis/genrateToken.js";
 
 
 export const singup = async (req, res) => {
@@ -34,14 +35,21 @@ export const singup = async (req, res) => {
 
         })
 
-        await newUser.save();
+        if(newUser){
+
+            //Genarate JWT token
+            genrateTokenSetCookie(newUser._id, res);
+            await newUser.save();
 
         res.status(201).json({
             _id: newUser._id,
             fullname: newUser.fullname,
             username: newUser.username,
             profilePic:newUser.profilePic
-        })
+        });
+        }else{
+            res.status.json({error:"Invalid user data"});
+        }
         
 
     } catch (error) {
